@@ -19,7 +19,7 @@ namespace Facturas_proyecto.BussinesObjects
             get;
             set;
         }
-        public SqlMoney Precio
+        public Double Precio
         {
             get;
             set;

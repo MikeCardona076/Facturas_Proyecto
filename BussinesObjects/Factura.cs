@@ -23,7 +23,7 @@ namespace Facturas_proyecto.BussinesObjects
             get;
             set;
         }
-        public SqlMoney TotalFact
+        public Double TotalFact
         {
             get;
             set;

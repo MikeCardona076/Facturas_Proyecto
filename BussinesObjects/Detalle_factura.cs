@@ -7,11 +7,11 @@ namespace Facturas_proyecto.BussinesObjects
 {
     public class Detalle_factura
     {
-        public Int32 IdCte {
+        public Int32 Idfact {
             get;
             set;
         }
-        public String Consecutivo_det
+        public Int32 Consecutivo_det
         {
             get;
             set;
@@ -30,7 +30,7 @@ namespace Facturas_proyecto.BussinesObjects
 
         }
 
-        public Int32 Subtotal_det
+        public Double Subtotal_det
         {
             get;
             set;
