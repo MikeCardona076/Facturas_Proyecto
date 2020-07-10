@@ -37,7 +37,7 @@
                 <asp:Button ID="btnConsultar" runat="server" Text="Button" />
                 <asp:Button ID="bntLimpiar" runat="server" Text="Button" />
             </div>
-            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

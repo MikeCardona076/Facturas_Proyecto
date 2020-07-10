@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Facturas_proyecto.BussinesObjects;
+using System;
+using System.Collections.Generic;
 
 static public class FacturaDAL
 {
@@ -6,7 +8,7 @@ static public class FacturaDAL
     ///Insertar
     static public Int32 InsertarFactura(Factura fact)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
         try
         {
 
@@ -21,7 +23,7 @@ static public class FacturaDAL
     ///Eliminar
     static public Int32 EliminarFactura(Int32 Idfact)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
 
         try
         {
@@ -37,7 +39,7 @@ static public class FacturaDAL
     ///Actualizar
     static public Int32 ActualizarFactura(Factura fact)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
 
         try
         {

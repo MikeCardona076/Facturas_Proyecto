@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Facturas_proyecto.BussinesObjects;
+using System;
+using System.Collections.Generic;
 
 static public class ClienteDAL
 {
@@ -6,7 +8,7 @@ static public class ClienteDAL
     ///Insertar
     static public Int32 InsertarCliente(Cliente cte)
     {
-        Int32 affectedRows;
+        Int32 affectedRows=0;
         try
         {
 
@@ -21,7 +23,7 @@ static public class ClienteDAL
     ///Eliminar
     static public Int32 EliminarCliente(Int32 IdCliente)
     {
-        Int32 affectedRows;
+        Int32 affectedRows=0;
         try
         {
 
@@ -36,7 +38,7 @@ static public class ClienteDAL
     ///Actualizar
     static public Int32 ActualizarCliente(Cliente cte)
     {
-        Int32 affectedRows;
+        Int32 affectedRows=0;
         try
         {
 

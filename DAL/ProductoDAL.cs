@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Facturas_proyecto.BussinesObjects;
+using System;
 using System.Collections.Generic;
 
 static public class ProductoDAL
@@ -7,7 +8,7 @@ static public class ProductoDAL
     ///Insertar
     static public Int32 InsertarProducto(Producto prod)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
         try
         {
 
@@ -23,7 +24,7 @@ static public class ProductoDAL
     ///Eliminar
     static public Int32 EliminarProducto(Int32  Idprod)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
         try
         {
 
@@ -38,7 +39,7 @@ static public class ProductoDAL
     ///Actualizar
     static public Int32 ActualizarProducto(Producto prod)
     {
-        Int32 affectedRows;
+        Int32 affectedRows = 0;
         try
         {
 
