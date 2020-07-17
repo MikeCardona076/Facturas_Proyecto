@@ -26,7 +26,7 @@ namespace Facturas_proyecto.View
         #endregion
 
         #region Methods
-        #endregion
+        
 
         //.................................................................................................//
         public Int32 InsertarCliente(Cliente cte)
@@ -49,19 +49,19 @@ namespace Facturas_proyecto.View
         //.................................................................................................//
 
 
-        public Int32 SeleccionarCliente(Cliente cte)
+        public List<Cliente> SeleccionarCliente(Int32? IdCte, String  Nombre, String  Rfc)
         {
-            Int32 affectedRows = 0;
+            List<Cliente> ClienteList = new List<Cliente>();
 
             try
             {
-                affectedRows = ClienteDAL.SeleccionarCliente(cte);
+                ClienteList = ClienteDAL.SeleccionarCliente(IdCte, Nombre, Rfc);
             }
                         catch (Exception ex)
             {
 
             }
-            return;
+            return ClienteList;
 
         }
 
@@ -85,13 +85,13 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-        public Int32 BorrarCliente(Cliente cte)
+        public Int32 BorrarCliente(Int32 IdCliente)
         {
             Int32 affectedRows = 0;
 
             try
             {
-                affectedRows = ClienteDAL.BorrarCliente(cte);
+                affectedRows = ClienteDAL.EliminarCliente(IdCliente);
             }
             catch (Exception ex)
             {
@@ -119,8 +119,10 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-        
+        #endregion
+
         //Events
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -146,14 +148,14 @@ namespace Facturas_proyecto.View
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
             try{
-                ClienteList cte = new Cliente();
+                Cliente cte = new Cliente();
 
                 cte.Nombre = txbNombre.Text;
                 cte.Direccion = txbDireccion.Text;
-                cte.Telefono = txbTelefono.Text;
-                cte.Rfc = txbRfc.Text;
-                cte.Email = txbEmail.Text;
-                cte.FechaNacimieno = Convert.ToDateTime(txbFechaNacimiento);
+                cte.Telefono = Convert.ToInt32(txbTelefono.Text);
+                cte.RFC = txbRfc.Text;
+                cte.EmailCte = txbEmail.Text;
+                cte.FechaNacimiento = Convert.ToDateTime(txbFechaNacimiento.Text);
 
                 Int32 affectedRows = 0;
 
@@ -173,6 +175,21 @@ namespace Facturas_proyecto.View
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Int32? IdCte = null;
+                String Nombre = "";
+                String Rfc = "";
+
+                ClienteList = new List<Cliente>();
+                ClienteList = SeleccionarCliente(IdCte, Nombre, Rfc);
+                RellenarGridClientes(ClienteList);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
 
         }
 
@@ -181,8 +198,15 @@ namespace Facturas_proyecto.View
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            txbNombre.Text = String.Empty;
+            txbDireccion.Text = String.Empty;
+            txbTelefono.Text = String.Empty;
+            txbRfc.Text = String.Empty;
+            txbEmail.Text = String.Empty;
+            txbFechaNacimiento.Text = String.Empty;
         }
+
+        #endregion
 
     }
 }

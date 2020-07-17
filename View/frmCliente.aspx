@@ -10,27 +10,27 @@
          <form id="form1" runat="server">
             <div>
                 <asp:Label ID="lb1Nombre" runat="server" Text="Nombre"></asp:Label>
-                <asp:TextBox ID="TexBNombre" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbNombre" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Label ID="lb2Direccion" runat="server" Text="Direccion"></asp:Label>
-                <asp:TextBox ID="TexBDireccion" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbDireccion" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Label ID="lb3Telefono" runat="server" Text="Telefono"></asp:Label>
-                <asp:TextBox ID="TextBTelefono" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbTelefono" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Label ID="lbRFC" runat="server" Text="RFC"></asp:Label>
-                <asp:TextBox ID="TextBRFC" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbRfc" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Label ID="lbEmail" runat="server" Text="Email"></asp:Label>
-                <asp:TextBox ID="TexBEmail" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbEmail" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Label ID="lbFechaNacimiento" runat="server" Text="FechaNacimiento"></asp:Label>
-                <asp:TextBox ID="TexBFechaNacimiento" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbFechaNacimiento" runat="server"></asp:TextBox>
             </div>
             <div>
                 <asp:Button ID="btnInsertar" runat="server" Text="Button" />

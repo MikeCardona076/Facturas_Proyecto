@@ -27,7 +27,7 @@ namespace Facturas_proyecto.View
 
             try
             {
-                affectedRows = ProductoDAL.InsertarProducto();
+                affectedRows = ProductoDAL.InsertarProducto(prd);
             }
             catch(Exception ex)
             {
@@ -40,25 +40,25 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-        public Int32 SeleccionarProducto(Cliente cte)
+        public List<Producto> SeleccionarProducto(Int32? Idprod, String CodigoBarras, String Nombre)
         {
-            Int32 affectedRows = 0;
+            List<Producto> ProductoList = new List<Producto>();
 
             try
             {
-                affectedRows = ProductoDAL.SeleccionarProducto(prod);
+                ProductoList = ProductoDAL.SeleccionarProducto(Idprod, CodigoBarras, Nombre);
             }
                         catch (Exception ex)
             {
 
             }
-            return;
+            return ProductoList;
 
         }
 
         //.................................................................................................//
 
-        public Int32 ActualizarProducto(Cliente prod)
+        public Int32 ActualizarProducto(Producto prod)
         {
             Int32 affectedRows = 0;
 
@@ -76,13 +76,13 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-        public Int32 BorrarProducto(Cliente cte)
+        public Int32 BorrarProducto(Int32? Idprod)
         {
             Int32 affectedRows = 0;
 
             try
             {
-                affectedRows = ProductoDAL.BorrarProducto(prod);
+                affectedRows = ProductoDAL.EliminarProducto(Idprod);
             }
             catch (Exception ex)
             {
@@ -110,18 +110,19 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-        
+
         //Events
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 Int32? Idprod = null;
                 String Descripcion = "";
-                Int32? CodigoBarras = "";
+                String CodigoBarras = "";
 
                 ProductoList = new List<Producto>();
-                ProductoList = SeleccionarProducto(Idprod, Descripcion, CodigoBarras);
+                ProductoList = SeleccionarProducto(Idprod, CodigoBarras, Descripcion);
                 RellenarGridProducto(ProductoList);
 
             }
@@ -135,11 +136,11 @@ namespace Facturas_proyecto.View
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
             try{
-                ProductoList prod = new Producto();
+                Producto prod = new Producto();
 
                 prod.Descripcion = txbDescripcion.Text;
-                prod.Precio = txbPrecio.Text;
-                prod.FechaCaducidad = Convert.ToDateTime(txbFechaCaducidad);
+                prod.Precio = Convert.ToDouble(txbPrecio.Text);
+                prod.FechaCaducidad = Convert.ToDateTime(txbFechaCaducidad.Text);
                 prod.CodigoBarras = txbCodigoBarras.Text;
                 prod.ProveedorProd = txbProveedorProd.Text;
 
@@ -161,6 +162,22 @@ namespace Facturas_proyecto.View
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Int32? Idprod = null;
+                String Descripcion = "";
+                String CodigoBarras = "";
+
+                ProductoList = new List<Producto>();
+                ProductoList = SeleccionarProducto(Idprod, CodigoBarras, Descripcion);
+                RellenarGridProducto(ProductoList);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
 
         }
 
@@ -169,10 +186,17 @@ namespace Facturas_proyecto.View
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
+            txbDescripcion.Text = String.Empty;
+            txbPrecio.Text = String.Empty;
+            txbFechaCaducidad.Text = String.Empty;
+            txbCodigoBarras.Text = String.Empty;
+            txbProveedorProd.Text = String.Empty;
 
         }
 
-        //.................................................................................................//
+        #endregion
+
+
 
     }
 }

@@ -33,13 +33,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lb1Nombre;
 
         /// <summary>
-        /// TexBNombre control.
+        /// txbNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TexBNombre;
+        protected global::System.Web.UI.WebControls.TextBox txbNombre;
 
         /// <summary>
         /// lb2Direccion control.
@@ -51,13 +51,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lb2Direccion;
 
         /// <summary>
-        /// TexBDireccion control.
+        /// txbDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TexBDireccion;
+        protected global::System.Web.UI.WebControls.TextBox txbDireccion;
 
         /// <summary>
         /// lb3Telefono control.
@@ -69,13 +69,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lb3Telefono;
 
         /// <summary>
-        /// TextBTelefono control.
+        /// txbTelefono control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBTelefono;
+        protected global::System.Web.UI.WebControls.TextBox txbTelefono;
 
         /// <summary>
         /// lbRFC control.
@@ -87,13 +87,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lbRFC;
 
         /// <summary>
-        /// TextBRFC control.
+        /// txbRfc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBRFC;
+        protected global::System.Web.UI.WebControls.TextBox txbRfc;
 
         /// <summary>
         /// lbEmail control.
@@ -105,13 +105,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lbEmail;
 
         /// <summary>
-        /// TexBEmail control.
+        /// txbEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TexBEmail;
+        protected global::System.Web.UI.WebControls.TextBox txbEmail;
 
         /// <summary>
         /// lbFechaNacimiento control.
@@ -123,13 +123,13 @@ namespace Facturas_proyecto.View
         protected global::System.Web.UI.WebControls.Label lbFechaNacimiento;
 
         /// <summary>
-        /// TexBFechaNacimiento control.
+        /// txbFechaNacimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TexBFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox txbFechaNacimiento;
 
         /// <summary>
         /// btnInsertar control.

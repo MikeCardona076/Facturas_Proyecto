@@ -51,7 +51,7 @@ static public class ClienteDAL
     }
     ///......................................................................///
     //Seleccionar 
-    static public List<Cliente> SeleccionarCliente(Int32? IdCliente)
+    static public List<Cliente> SeleccionarCliente(Int32? IdCliente, String Nombre, String Rfc)
     {
         List<Cliente> ClienteList = new List<Cliente>();
 

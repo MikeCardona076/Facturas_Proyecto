@@ -22,7 +22,7 @@ static public class ProductoDAL
     }
     ///......................................................................///
     ///Eliminar
-    static public Int32 EliminarProducto(Int32  Idprod)
+    static public Int32 EliminarProducto(Int32?  Idprod)
     {
         Int32 affectedRows = 0;
         try
@@ -52,7 +52,7 @@ static public class ProductoDAL
     }
     ///......................................................................///
     //Seleccionar Productos
-    static public List<Producto> SeleccionarProducto(Int32? Idprod, String Nombre)
+    static public List<Producto> SeleccionarProducto(Int32? Idprod, String CodigoBarras, String Nombre)
     {
         List<Producto> ProductoList = new List<Producto>();
 
