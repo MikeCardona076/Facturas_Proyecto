@@ -19,7 +19,7 @@ namespace Facturas_proyecto.View
         #endregion
 
         #region Methods
-        #endregion
+        
         //.................................................................................................//
         public Int32 InsertarProducto(Producto prd)
         {
@@ -110,7 +110,7 @@ namespace Facturas_proyecto.View
 
         //.................................................................................................//
 
-
+        #endregion
         //Events
         #region Events
         protected void Page_Load(object sender, EventArgs e)
