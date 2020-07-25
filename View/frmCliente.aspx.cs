@@ -152,7 +152,7 @@ namespace Facturas_proyecto.View
 
                 cte.Nombre = txbNombre.Text;
                 cte.Direccion = txbDireccion.Text;
-                cte.Telefono = Convert.ToInt32(txbTelefono.Text);
+                cte.Telefono = Convert.ToString(txbTelefono.Text);
                 cte.RFC = txbRfc.Text;
                 cte.EmailCte = txbEmail.Text;
                 cte.FechaNacimiento = Convert.ToDateTime(txbFechaNacimiento.Text);

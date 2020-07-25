@@ -184,6 +184,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\ClienteDAL.cs" />
+    <Compile Include="DAL\DBManager.cs" />
     <Compile Include="DAL\Detalle_FacturaDAL.cs" />
     <Compile Include="DAL\FacturaDAL.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />

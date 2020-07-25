@@ -22,7 +22,7 @@ namespace Facturas_proyecto.BussinesObjects
             get;
             set;
         }
-        public Int32 Telefono
+        public String  Telefono
         {
             get;
             set;
