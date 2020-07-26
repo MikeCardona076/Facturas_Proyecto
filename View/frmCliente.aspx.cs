@@ -127,13 +127,18 @@ namespace Facturas_proyecto.View
         {
             try
             {
-                Int32? IdCte = null;
-                String Nombre = "";
-                String Rfc = "";
+                if (!Page.IsPostBack)
+                {
+                    Int32? IdCte = null;
+                    String Nombre = "";
+                    String Rfc = "";
 
-                ClienteList = new List<Cliente>();
-                ClienteList = SeleccionarCliente(IdCte, Nombre, Rfc);
-                RellenarGridClientes(ClienteList);
+                    ClienteList = new List<Cliente>();
+                    ClienteList = SeleccionarCliente(IdCte, Nombre, Rfc);
+                    RellenarGridClientes(ClienteList);
+
+                }
+
 
             }
             catch(Exception ex){

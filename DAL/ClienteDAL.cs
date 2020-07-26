@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-
+using Facturas_proyecto.DAL;
 
 static public class ClienteDAL
 {
@@ -18,12 +18,12 @@ static public class ClienteDAL
         Int32 affectedRows=0;
         try
         {
-            String conStr = "DBManager.GetConnectionStrings('FacturacionDB')";
+            String conStr = DBManager.GetConnectionString("Servicio");
             con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
             // LLAMADA AL PROCEDIMIENTO
-            cmd.CommandText = "dbo.crear_cliente"; //Nombre del SP
+            cmd.CommandText = "crear_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
 
             #region Parametros SP
@@ -109,8 +109,6 @@ static public class ClienteDAL
 
             #endregion
 
-
-
         }
 
 
@@ -136,14 +134,14 @@ static public class ClienteDAL
         Int32 affectedRows=0;
         try
         {
-            String conStr = "DBManager.GetConnectionStrings('FacturacionDB')";
+            String conStr = DBManager.GetConnectionString("Servicio"); ;
             con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
             #region SP
 
             // LLAMADA AL PROCEDIMIENTO
-            cmd.CommandText = "dbo.eliminar_cliente"; //Nombre del SP
+            cmd.CommandText = "eliminar_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
 
             ///......................................................................///
@@ -190,12 +188,12 @@ static public class ClienteDAL
         Int32 affectedRows = 0;
         try
         {
-            String conStr = "DBManager.GetConnectionStrings('FacturacionDB')";
+            DBManager.GetConnectionString("Servicio");
             con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
             // LLAMADA AL PROCEDIMIENTO
-            cmd.CommandText = "dbo.actualizar_cliente"; //Nombre del SP
+            cmd.CommandText = "actualizar_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
 
             #region Parametros SP
@@ -308,12 +306,12 @@ static public class ClienteDAL
 
         try
         {
-            String conStr = "DBManager.GetConnectionStrings('FacturacionDB')";
+            String conStr = DBManager.GetConnectionString("Servicio");
             con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
             // LLAMADA AL PROCEDIMIENTO
-            cmd.CommandText = "dbo.seleccionar_cliente"; //Nombre del SP
+            cmd.CommandText = "seleccionar_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -322,7 +320,7 @@ static public class ClienteDAL
             ///......................................................................///
             // ID CLIENTE
             SqlParameter parIdCliente = new SqlParameter(); // Declarar
-            parIdCliente.ParameterName = "@id_cte"; //Nombre de nuestro parametro en SP
+            parIdCliente.ParameterName = "@Id_cte"; //Nombre de nuestro parametro en SP
             parIdCliente.DbType = DbType.Int32; // Tipo
             parIdCliente.Direction = ParameterDirection.Output; // Asignar si es de salida o no
             cmd.Parameters.Add(parIdCliente); // Agregamos 
@@ -330,7 +328,7 @@ static public class ClienteDAL
             ///......................................................................///
             // NOMBRE
             SqlParameter parName = new SqlParameter(); // Declarar
-            parName.ParameterName = "@nombre"; //Nombre de nuestro parametro en SP
+            parName.ParameterName = "@Nombre_cte"; //Nombre de nuestro parametro en SP
             parName.DbType = DbType.String; // Tipo
             parName.Direction = ParameterDirection.Input; // Asignar si es de salida o no
             parName.Value = String.IsNullOrEmpty(Nombre) ? null : Nombre;
@@ -339,10 +337,10 @@ static public class ClienteDAL
             ///......................................................................///
             // RFC
             SqlParameter parRfc = new SqlParameter(); // Declarar
-            parRfc.ParameterName = "@rfc"; //Nombre de nuestro parametro en SP
+            parRfc.ParameterName = "@Rfc"; //Nombre de nuestro parametro en SP
             parRfc.DbType = DbType.String; // Tipo
             parRfc.Direction = ParameterDirection.Input; // Asignar si es de salida o no
-            parRfc.Value = Rfc;
+            parRfc.Value = String.IsNullOrEmpty(Rfc) ? null : Rfc;
             cmd.Parameters.Add(parRfc); // Agregamos 
 
             con.Close();
