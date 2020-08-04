@@ -19,12 +19,13 @@ static public class ClienteDAL
         try
         {
             String conStr = DBManager.GetConnectionString("Servicio");
-            con = new SqlConnection();
+            con = new SqlConnection(conStr);
             SqlCommand cmd = new SqlCommand();
 
             // LLAMADA AL PROCEDIMIENTO
             cmd.CommandText = "crear_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
 
             #region Parametros SP
 
@@ -307,12 +308,13 @@ static public class ClienteDAL
         try
         {
             String conStr = DBManager.GetConnectionString("Servicio");
-            con = new SqlConnection();
+            con = new SqlConnection(conStr);
             SqlCommand cmd = new SqlCommand();
 
             // LLAMADA AL PROCEDIMIENTO
             cmd.CommandText = "seleccionar_cliente"; //Nombre del SP
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
 
 
             //PARAMETROS DEL SP
@@ -322,7 +324,8 @@ static public class ClienteDAL
             SqlParameter parIdCliente = new SqlParameter(); // Declarar
             parIdCliente.ParameterName = "@Id_cte"; //Nombre de nuestro parametro en SP
             parIdCliente.DbType = DbType.Int32; // Tipo
-            parIdCliente.Direction = ParameterDirection.Output; // Asignar si es de salida o no
+            parIdCliente.Direction = ParameterDirection.Input; // Asignar si es de salida o no
+            parIdCliente.Value = IdCliente;
             cmd.Parameters.Add(parIdCliente); // Agregamos 
 
             ///......................................................................///
@@ -343,7 +346,7 @@ static public class ClienteDAL
             parRfc.Value = String.IsNullOrEmpty(Rfc) ? null : Rfc;
             cmd.Parameters.Add(parRfc); // Agregamos 
 
-            con.Close();
+            con.Open();
 
             SqlDataReader dr;
             dr = cmd.ExecuteReader();
@@ -353,13 +356,13 @@ static public class ClienteDAL
                 {
                     Cliente cte = new Cliente();
 
-                    cte.IdCte = Convert.ToInt32(dr["Id_Cte"].ToString());
-                    cte.Nombre = dr["nombre_cte"].ToString();
-                    cte.Telefono = dr["telefono"].ToString();
+                    cte.IdCte = Convert.ToInt32(dr["id_Cte"].ToString());
+                    cte.Nombre = dr["Nombre_cte"].ToString();
+                    cte.Telefono = dr["Telefono"].ToString();
                     cte.EmailCte = dr["email_cliente"].ToString();
-                    cte.Direccion = dr["direccion"].ToString();
-                    cte.FechaNacimiento = Convert.ToDateTime(dr["fecha_nacimiento"].ToString());
-                    cte.RFC = dr["rfc"].ToString();
+                    cte.Direccion = dr["Direccion"].ToString();
+                    cte.FechaNacimiento = Convert.ToDateTime(dr["Fecha_Nacimiento_cte"].ToString());
+                    cte.RFC = dr["RFC_cte"].ToString();
 
                     ClienteList.Add(cte);
                 }
@@ -371,6 +374,10 @@ static public class ClienteDAL
         catch (SqlException ex)
         {
             throw ex;
+        }
+        finally
+        {
+            con.Close();
         }
 
         return ClienteList;

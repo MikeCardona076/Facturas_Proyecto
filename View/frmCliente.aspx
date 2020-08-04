@@ -33,8 +33,8 @@
                 <asp:TextBox ID="txbFechaNacimiento" runat="server"></asp:TextBox>
             </div>
             <div>
-                <asp:Button ID="btnInsertar" runat="server" Text="Crear" />
-                <asp:Button ID="btnConsultar" runat="server" Text="Consultar" />
+                <asp:Button ID="btnInsertar" runat="server" Text="Crear" OnClick="btnInsertar_Click" />
+                <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
                 <asp:Button ID="bntLimpiar" runat="server" Text="Limpiar" />
             </div>
             <asp:GridView ID="GridClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
